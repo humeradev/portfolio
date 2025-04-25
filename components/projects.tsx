@@ -36,13 +36,12 @@ const projects = [
   },
   {
     id: 4,
-    title: "Healthcare App UI",
+    title: "Abrahan Accountants Website",
     description:
-      "UI/UX design for a healthcare mobile application focused on patient experience",
-    image: "/placeholder.svg?height=400&width=600",
+      "Abraham Accountants, a well-reputed firm serving Bradford for the past 26 years, proudly partnered with HumAi Webs for the creation of their website.",
+    image: "/abraham-accountants.png",
     tags: ["Figma", "UI/UX", "Prototyping"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://abrahamaccountants.com/",
   },
 ];
 
