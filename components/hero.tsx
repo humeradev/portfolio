@@ -22,7 +22,7 @@ export function Hero() {
               <span className="gradient-text">Humera Khan</span>
               <br />
               <span className="text-3xl md:text-4xl lg:text-5xl opacity-90">
-                Frontend Developer & CEO
+                Website Developer & CEO
               </span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 max-w-xl mb-8 text-balance">
