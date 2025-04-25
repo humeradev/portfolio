@@ -58,6 +58,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <WhatsAppButton />
         </ThemeProvider>
         <Toaster />
         <Script id="schema-script" type="application/ld+json">
@@ -90,3 +91,4 @@ export default function RootLayout({
 }
 
 import "./globals.css";
+import WhatsAppButton from "@/components/whatsapp";
