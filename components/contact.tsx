@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -23,17 +25,28 @@ export function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    try {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_EMAIL_URL}`, {
+        ...formData,
+        apiKey: process.env.NEXT_PUBLIC_EMAIL_API_KEY,
+      });
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      if (res.data.status) {
+        toast.success("Message sent successfully!");
+      } else {
+        toast.error("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      toast.error("Error sending message. Please try again later.");
+    }
   };
 
   return (
@@ -94,12 +107,14 @@ export function Contact() {
           <div className="lg:col-span-2 animate-slide-in-right">
             <form
               onSubmit={handleSubmit}
-              className="glass-effect p-8 rounded-xl border border-border/40">
+              className="glass-effect p-8 rounded-xl border border-border/40"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium mb-2">
+                    className="block text-sm font-medium mb-2"
+                  >
                     Your Name
                   </label>
                   <Input
@@ -114,7 +129,8 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium mb-2">
+                    className="block text-sm font-medium mb-2"
+                  >
                     Your Email
                   </label>
                   <Input
@@ -131,7 +147,8 @@ export function Contact() {
               <div className="mb-6">
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium mb-2">
+                  className="block text-sm font-medium mb-2"
+                >
                   Subject
                 </label>
                 <Input
@@ -146,7 +163,8 @@ export function Contact() {
               <div className="mb-6">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2">
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
                 <Textarea
@@ -160,7 +178,8 @@ export function Contact() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
+              >
                 Send Message
               </Button>
             </form>

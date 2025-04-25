@@ -1,11 +1,11 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Outfit } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import Script from "next/script"
-
-const outfit = Outfit({ subsets: ["latin"] })
+import type React from "react";
+import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import Script from "next/script";
+import { Toaster } from "react-hot-toast";
+const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Humera Khan | Frontend Developer & CEO | HumAi Webs",
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://humerakhan.com",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -51,9 +51,15 @@ export default function RootLayout({
         <meta name="geo.placename" content="London" />
       </head>
       <body className={outfit.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
+        <Toaster />
         <Script id="schema-script" type="application/ld+json">
           {`
             {
@@ -80,8 +86,7 @@ export default function RootLayout({
         </Script>
       </body>
     </html>
-  )
+  );
 }
 
-
-import './globals.css'
+import "./globals.css";
