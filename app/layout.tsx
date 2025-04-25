@@ -5,29 +5,32 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
+import "./globals.css";
+import WhatsAppButton from "@/components/whatsapp";
+
 const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Humera Khan | Frontend Developer & CEO | HumAi Webs",
+  title: "Humera Khan | Full Stack Developer & CEO | HumAi Webs",
   description:
     "Portfolio of Humera Khan, founder and CEO of HumAi Webs, a forward-thinking web design and development studio based in the UK.",
   keywords:
-    "Humera Khan, HumAi Webs, UK web developer, frontend developer UK, React developer, Next.js developer, web design UK",
+    "Humera Khan, HumAi Webs, UK web developer, Full Stack Developer UK, React developer, Next.js developer, web design UK",
   authors: [{ name: "Humera Khan" }],
   creator: "Humera Khan",
   publisher: "HumAi Webs",
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://humerakhan.com",
-    title: "Humera Khan | Frontend Developer & CEO | HumAi Webs",
+    url: "https://humeradev.humaionline.com",
+    title: "Humera Khan | Full Stack Developer & CEO | HumAi Webs",
     description:
       "Portfolio of Humera Khan, founder and CEO of HumAi Webs, a forward-thinking web design and development studio based in the UK.",
     siteName: "Humera Khan",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Humera Khan | Frontend Developer & CEO | HumAi Webs",
+    title: "Humera Khan | Full Stack Developer & CEO | HumAi Webs",
     description:
       "Portfolio of Humera Khan, founder and CEO of HumAi Webs, a forward-thinking web design and development studio based in the UK.",
     creator: "@humerakhan",
@@ -67,7 +70,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Humera Khan",
-              "jobTitle": "CEO & Frontend Developer",
+              "jobTitle": "CEO & Full Stack Developer",
               "description": "Founder and CEO of HumAi Webs, a forward-thinking web design and development studio.",
               "url": "https://humerakhan.com",
               "sameAs": [
@@ -75,7 +78,7 @@ export default function RootLayout({
                 "https://github.com/humerakhan",
                 "https://linkedin.com/in/humerakhan"
               ],
-              "knowsAbout": ["Frontend Development", "React", "Next.js", "Tailwind CSS", "UI/UX Design", "Web Development"],
+              "knowsAbout": ["Full Stack Development", "React", "Next.js", "Tailwind CSS", "UI/UX Design", "Web Development"],
               "worksFor": {
                 "@type": "Organization",
                 "name": "HumAi Webs",
@@ -89,6 +92,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-import "./globals.css";
-import WhatsAppButton from "@/components/whatsapp";
